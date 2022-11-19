@@ -288,9 +288,3 @@ def filter_labels(image, category2ids):
             image_new += (image==id).astype(np.uint8) * tag
     return image_new
 
-
-if __name__ == "__main__":
-    #load data
-    x_path  = "../datasets/carla/train/x"
-    y_path = "../datasets/carla/train/y"
-    X, Y = loadImages(x_path=x_path, y_path=y_path, images_scale=1, number_of_images = 100, skip_images =0, x_dtype="uint8", y_dtype="sparce", parallel=False, threads=12, flip=False, data_from="carla")
