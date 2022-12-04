@@ -1,6 +1,6 @@
 from dataloader import loadImages
 import tensorflow as tf
-from model import unet
+from models import unet
 import numpy as np
 #pip install focal-loss
 from focal_loss import SparseCategoricalFocalLoss
@@ -60,15 +60,6 @@ if __name__ == "__main__":
         x_dtype="uint8", y_dtype="sparce", parallel=True, threads=12, flip=True, 
         data_from = "carla", category2names = {0:["vehicle"], 1:["road", "roadline"]}
         )
-    model.fit(X, Y, validation_data=(X_val, Y_val), batch_size = 16, epochs = 20, verbose = 0, callbacks = None) 
+    model.fit(X, Y, batch_size = 16, epochs = 20, verbose = 0, callbacks = None) 
 
     model.save("./unet")
-
-
-
-
-
-
-
-
-
